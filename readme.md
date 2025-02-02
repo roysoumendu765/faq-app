@@ -23,7 +23,7 @@ npm start
 
 ### Other Requirements:
 - Create a .env file with these fields:
-bash ```
+```bash
 DB_URI = ""
 DB_USERNAME = ""
 DB_PASSWORD = ""
@@ -33,13 +33,13 @@ REDIS_URI = "redis://127.0.0.1:6379"
 ```
 
 ### To run redis in windows machine (Make sure redis-server is installed): 
-``` bash
+```bash
 redis-server --port 6379
 sudo service redis start
 ```
 
 - Created dockerFile and docker-compose.yml
-``` bash
+```bash
 docker build -t faq-app .
 docker images
 docker run -p 4000:4000 --name faq-app-container faq-app
