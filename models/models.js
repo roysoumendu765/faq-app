@@ -4,10 +4,10 @@ const axios = require("axios");
 const FAQSchema = new mongoose.Schema({
     question: { type: String, required: true },
     answer: { type: String, required: true },
-    ques_hi: { type: String },
-    ques_bn: { type: String },
-    ans_hi: {type: String},
-    ans_bn: {type: String}
+    question_hi: { type: String },
+    question_bn: { type: String },
+    answer_hi: {type: String},
+    answer_bn: {type: String}
 });
 
 const translateText = async (text, targetLang) => {
@@ -26,17 +26,17 @@ const translateText = async (text, targetLang) => {
 };
 
 FAQSchema.pre("save", async function (next) {
-    if (!this.ques_hi) {
-        this.ques_hi = await translateText(this.question, "hi");
+    if (!this.question_hi) {
+        this.question_hi = await translateText(this.question, "hi");
     }
-    if (!this.ques_bn) {
-        this.ques_bn = await translateText(this.question, "bn");
+    if (!this.question_bn) {
+        this.question_bn = await translateText(this.question, "bn");
     }
-    if(!this.ans_hi){
-        this.ans_hi = await translateText(this.answer, "hi");
+    if(!this.answer_hi){
+        this.answer_hi = await translateText(this.answer, "hi");
     }
-    if(!this.ans_bn){
-        this.ans_bn = await translateText(this.answer, "bn");
+    if(!this.answer_bn){
+        this.answer_bn = await translateText(this.answer, "bn");
     }
     next();
 });
