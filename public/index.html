@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>FAQ Admin Panel</h1>
+    <form id="faqForm">
+        <label>Question:</label>
+        <input type="text" id="question" required>
+        <label>Answer:</label>
+        <input type="text" id="answer" required>
+        <button type="submit">Add FAQ</button>
+    </form>
+
+    <h2>FAQs</h2>
+    <select id="language">
+        <option value="hi">Hindi</option>
+        <option value="bn">Bengali</option>
+    </select>
+    <button onclick="fetchFAQs()">Load FAQs</button>
+    <ul id="faqList"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
