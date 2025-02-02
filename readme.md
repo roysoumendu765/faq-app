@@ -30,9 +30,8 @@ DB_PASSWORD = ""
 PORT = 4000
 REDIS_URI = "redis://127.0.0.1:6379"
 ```
-```
 
-### To run redis in windows machine (Make sure redis-server is installed): 
+- To run redis in windows machine (Make sure redis-server is installed): 
 ```bash
 redis-server --port 6379
 sudo service redis start
