@@ -32,26 +32,23 @@ REDIS_URI = "redis://127.0.0.1:6379"
 ```
 ```
 
-- To run redis in windows machine (Make sure redis-server is installed): 
-bash ```
+### To run redis in windows machine (Make sure redis-server is installed): 
+``` bash
 redis-server --port 6379
 sudo service redis start
 ```
-```
 
 - Created dockerFile and docker-compose.yml
-bash ```
+``` bash
 docker build -t faq-app .
 docker images
 docker run -p 4000:4000 --name faq-app-container faq-app
 ```
-```
 
 - To Use docker.compose.yml:
-bash```
+```bash
 docker-compose build
 docker-compose up
-```
 http://localhost:4000
 ```
 
