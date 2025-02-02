@@ -1,0 +1,35 @@
+version: '1.0'
+
+services:
+  app:
+    build: .
+    container_name: faq-app
+    ports:
+      - "4000:4000"  
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/faqdb  
+      - REDIS_HOST=redis 
+      - REDIS_PORT=6379 
+    depends_on:
+      - mongo  
+      - redis  
+    networks:
+      - faq-network
+
+  mongo:
+    image: mongo:latest
+    container_name: faq-mongo
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - faq-network
+
+  redis:
+    image: redis:latest
+    container_name: faq-redis
+    networks:
+      - faq-network
+
+networks:
+  faq-network:
+    driver: bridge
