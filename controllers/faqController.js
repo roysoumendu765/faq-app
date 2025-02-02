@@ -23,7 +23,7 @@ const getData = async (req, res) => {
             answer: lang == "hi" ? faq.answer_hi : lang == "bn" ? faq.answer_bn : faq.answer,
         }));
 
-        await redisClient.setEx(key, 60, JSON.stringify(data));
+        await redisClient.setEx(key, 3600, JSON.stringify(data));
         res.status(200).json({ message: "Data Generated Successfully.", data });
     } catch (error) {
         res.status(500).json({ message: "Internal Server Error", error: error.message });
